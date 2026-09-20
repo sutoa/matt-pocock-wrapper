@@ -21,7 +21,9 @@ def create_app():
         if todo is None:
             return jsonify(error="not found"), 404
         data = request.get_json(silent=True) or {}
-        todo["completed"] = bool(data["completed"])
+        if not isinstance(data.get("completed"), bool):
+            return jsonify(error="'completed' must be a boolean"), 400
+        todo["completed"] = data["completed"]
         return jsonify(todo)
 
     return app
