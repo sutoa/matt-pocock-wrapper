@@ -1,4 +1,4 @@
-from flask import Flask, jsonify, request
+from flask import Flask, jsonify, render_template, request
 
 
 def create_app():
@@ -10,6 +10,10 @@ def create_app():
 
     def find_todo(todo_id):
         return next((t for t in app.todos if t["id"] == todo_id), None)
+
+    @app.route("/")
+    def index():
+        return render_template("index.html", todos=app.todos)
 
     @app.route("/todos/<int:todo_id>", methods=["PATCH"])
     def update_todo(todo_id):

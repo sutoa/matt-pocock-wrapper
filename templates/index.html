@@ -1,0 +1,22 @@
+<!doctype html>
+<html>
+<head>
+  <title>Todos</title>
+  <style>
+    .completed .todo-title { text-decoration: line-through; }
+    .todo-error { color: red; }
+  </style>
+</head>
+<body>
+  <ul id="todo-list">
+    {% for todo in todos %}
+    <li class="todo-row{{ ' completed' if todo.completed else '' }}" data-id="{{ todo.id }}">
+      <input type="checkbox" class="todo-checkbox" {% if todo.completed %}checked{% endif %}>
+      <span class="todo-title">{{ todo.title }}</span>
+      <span class="todo-error"></span>
+    </li>
+    {% endfor %}
+  </ul>
+  <script src="/static/todo.js"></script>
+</body>
+</html>
