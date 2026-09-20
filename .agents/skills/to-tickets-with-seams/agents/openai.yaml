@@ -1,0 +1,5 @@
+interface:
+  display_name: "To Tickets (With Seams)"
+  short_description: "Draft or publish seam-aware tickets from a spec"
+policy:
+  allow_implicit_invocation: false

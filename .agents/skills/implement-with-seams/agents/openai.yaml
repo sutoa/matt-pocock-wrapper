@@ -1,0 +1,5 @@
+interface:
+  display_name: "Implement (With Seams)"
+  short_description: "Build a ticket, honoring its seam and regression fields"
+policy:
+  allow_implicit_invocation: false

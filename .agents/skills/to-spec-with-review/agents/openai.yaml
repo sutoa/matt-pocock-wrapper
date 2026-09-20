@@ -1,0 +1,5 @@
+interface:
+  display_name: "To Spec (With Review)"
+  short_description: "Draft a spec locally, without publishing"
+policy:
+  allow_implicit_invocation: false
