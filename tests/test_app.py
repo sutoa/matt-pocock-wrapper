@@ -32,3 +32,11 @@ def test_patch_nonexistent_id_returns_404():
     response = client.patch("/todos/999", json={"completed": True})
 
     assert response.status_code == 404
+
+
+def test_patch_missing_completed_key_returns_400():
+    client = make_client()
+
+    response = client.patch("/todos/1", json={})
+
+    assert response.status_code == 400
